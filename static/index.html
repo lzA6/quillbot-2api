@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quillbot-2API 测试面板</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="header">
+                <h2>Quillbot-2API</h2>
+                <p>v1.0</p>
+            </div>
+
+            <div class="form-group">
+                <label for="api-key">API Key</label>
+                <input type="password" id="api-key" placeholder="请输入您的 API Key" value="1">
+            </div>
+
+            <div class="form-group">
+                <label for="prompt-input">提示词 (Prompt)</label>
+                <textarea id="prompt-input" rows="6" placeholder="输入您的图像描述..."></textarea>
+            </div>
+
+            <div class="form-group slider-group">
+                <div class="slider-label"><label>长宽比 (Aspect Ratio)</label></div>
+                <div class="button-group" id="ratio-group">
+                    <button data-size="1:1" class="active">1:1</button>
+                    <button data-size="16:9">16:9</button>
+                    <button data-size="9:16">9:16</button>
+                    <button data-size="4:3">4:3</button>
+                    <button data-size="3:4">3:4</button>
+                </div>
+            </div>
+
+            <div class="form-group slider-group">
+                <div class="slider-label">
+                    <label for="count-slider">生成数量 (Count)</label>
+                    <span id="count-value">2</span>
+                </div>
+                <input type="range" id="count-slider" min="1" max="4" step="1" value="2">
+                <small>Quillbot 一次请求可能返回多张图片。</small>
+            </div>
+
+            <button id="generate-btn">
+                <span>生成图像</span>
+            </button>
+        </div>
+        <div class="main-content">
+            <div id="result-panel">
+                <div id="placeholder" class="placeholder">
+                    <p>请在左侧配置参数并开始生成</p>
+                </div>
+                <div id="spinner" class="spinner hidden"></div>
+                <div id="error-message" class="error hidden"></div>
+                <div id="image-grid"></div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
